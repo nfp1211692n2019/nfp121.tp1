@@ -1,5 +1,4 @@
 package question3;
-
 /**
  * NFP121 TpIntroduction, usage de BlueJ et du "Submitter".
  * 
@@ -8,6 +7,7 @@ package question3;
  * @see java.lang.String, java.lang.Math
  */
 public class AuditeurCNAM {
+    
     /** l'attribut nom de chaque auditeur. */
     private String nom;
     /** l'attribut prenom de chaque auditeur. */
@@ -27,9 +27,14 @@ public class AuditeurCNAM {
      *            sur la carte d'inscription, près de la photo
      */
     public AuditeurCNAM(String nom, String prenom, String matricule) {
+        if(nom.length() > 1 || prenom.length() > 1 || matricule.length() > 1){
+            System.out.println("invalid param");
+        }
+        else{
         this.nom = nom;
         this.prenom = prenom;
         this.matricule = matricule;
+        }
     }
 
     /**
@@ -45,7 +50,7 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return "";// à compléter
+        return nom+" "+prenom ;
     }
 
     /**
@@ -54,7 +59,7 @@ public class AuditeurCNAM {
      * @return son nom
      */
     public String nom() {
-        return null;// à compléter
+        return nom;// à compléter
     }
 
     /**
@@ -63,7 +68,7 @@ public class AuditeurCNAM {
      * @return son prénom
      */
     public String prenom() {
-        return null;// à compléter
+        return prenom;// à compléter
     }
 
     /**
@@ -72,7 +77,7 @@ public class AuditeurCNAM {
      * @return son matricule
      */
     public String matricule() {
-        return null;// à compléter
+        return matricule;// à compléter
     }
 
     /**
@@ -84,7 +89,7 @@ public class AuditeurCNAM {
      */
     @Override
     public String toString() {
-        return nom() + " " + prenom() + " login : " + login();
+        return (nom() + " " + prenom() + " login : " + login());
     }
 
 }
