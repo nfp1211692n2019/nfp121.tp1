@@ -55,7 +55,7 @@ public class Picture {
         
         sunTwo.changeColor("blue");
         sunTwo.moveHorizontal(160);
-        sunTwo.moveVertical(-7);
+        sunTwo.slowMoveVertical(220);;
         sunTwo.changeSize(80);
         sunTwo.makeVisible();
         
@@ -95,7 +95,7 @@ public class Picture {
         }
     };
     
-    public void sunBeGone() {
+    public void sunset() {
         if (wall != null) // only if it's painted already...
         {
             wall.changeColor("black");

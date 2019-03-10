@@ -27,13 +27,14 @@ public class AuditeurCNAM {
      *            sur la carte d'inscription, près de la photo
      */
     public AuditeurCNAM(String nom, String prenom, String matricule) {
+        //on doit remplacer les characters speciaux mais la methode replace all n'est vraimant pas la mailleur car on peut utiliser une methode tel que StringUtils.stripAccents qui remplace tout charactere correspondant plus effectivement
         if(nom.length() > 1 || prenom.length() > 1 || matricule.length() > 1){
             System.out.println("invalid param");
         }
         else{
-        this.nom = nom;
-        this.prenom = prenom;
-        this.matricule = matricule;
+        this.nom = nom.toLowerCase();
+        this.prenom = prenom.toLowerCase();
+        this.matricule = matricule.toLowerCase();
         }
     }
 
@@ -50,7 +51,7 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return nom+" "+prenom ;
+        return nom.substring(0, 5)+"_"+prenom.substring(0, 0) ;
     }
 
     /**
@@ -89,7 +90,7 @@ public class AuditeurCNAM {
      */
     @Override
     public String toString() {
-        return (nom() + " " + prenom() + " login : " + login());
+        return (nom() + " " + prenom() +  " login : " + login());
     }
 
 }
