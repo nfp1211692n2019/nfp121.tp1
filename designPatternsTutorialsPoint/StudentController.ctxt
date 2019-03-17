@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=StudentController
+comment1.params=name
+comment1.target=void\ setStudentName(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ getStudentName()
+comment3.params=rollNo
+comment3.target=void\ setStudentRollNo(java.lang.String)
+comment4.params=
+comment4.target=java.lang.String\ getStudentRollNo()
+comment5.params=
+comment5.target=void\ updateView()
+numComments=6

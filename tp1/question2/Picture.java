@@ -21,7 +21,9 @@ public class Picture {
     private Triangle roof;
     private Circle sun;
     private Circle sunTwo;
+    private boolean isEarthFixed = true;
 
+    
     /**
      * Constructor for objects of class Picture
      */
@@ -61,10 +63,10 @@ public class Picture {
         
         sun.changeColor("yellow");
         sun.moveHorizontal(180);
-        sun.moveVertical(-10);
+        sun.moveVertical(-100);
         sun.changeSize(60);
         sun.makeVisible();
-    }
+    };
 
     /**
      * Change this picture to black/white display
@@ -78,8 +80,8 @@ public class Picture {
             sun.changeColor("black");
             
             sunTwo.changeColor("green");
-        }
-    }
+        };
+    };
 
     /**
      * Change this picture to use color display
@@ -92,19 +94,18 @@ public class Picture {
             roof.changeColor("green");
             sun.changeColor("yellow");
             sunTwo.changeColor("blue");
-        }
+        };
     };
-    
-    public void sunset() {
-        if (wall != null) // only if it's painted already...
-        {
-            wall.changeColor("black");
-            window.changeColor("yellow");
-            roof.changeColor("black");
-            sun.changeColor("black");
-            
-            sunTwo.changeColor("white");
+    /** makes a sunset*/
+    public void EarthIsFix(){
+        if(this.isEarthFixed == true){
+            sun.slowMoveVertical(230);
+            sunTwo.slowMoveVertical(50);
+            this.isEarthFixed = false;
+        } else {
+            sun.slowMoveVertical(-230);
+            sunTwo.slowMoveVertical(-50);
+            this.isEarthFixed = true;
         }
-    }
-
+}
 }

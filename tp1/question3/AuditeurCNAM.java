@@ -28,14 +28,17 @@ public class AuditeurCNAM {
      */
     public AuditeurCNAM(String nom, String prenom, String matricule) {
         //on doit remplacer les characters speciaux mais la methode replace all n'est vraimant pas la mailleur car on peut utiliser une methode tel que StringUtils.stripAccents qui remplace tout charactere correspondant plus effectivement
-        if(nom.length() > 1 || prenom.length() > 1 || matricule.length() > 1){
-            System.out.println("invalid param");
-        }
-        else{
-        this.nom = nom.toLowerCase();
-        this.prenom = prenom.toLowerCase();
-        this.matricule = matricule.toLowerCase();
-        }
+        // if(nom.length() > 1 || prenom.length() > 1 || matricule.length() > 1){
+            // System.out.println("invalid param");
+        // }
+        // else{
+        // this.nom = nom.toLowerCase();
+        // this.prenom = prenom.toLowerCase();
+        // this.matricule = matricule.toLowerCase();
+        //}
+        this.nom = nom;
+        this.prenom = prenom;
+        this.matricule = matricule;
     }
 
     /**
@@ -50,8 +53,23 @@ public class AuditeurCNAM {
      * @return le login du Cnam simplifié, sans les adaptations dues aux
      *         homonymes...
      */
+    //il y a des autres methodes plus efficases en utilisant autre que replace all pour chaque charactere 
+    //ceci consiste de normaliser le string en une array et separer les characteres speciaux
     public String login() {
-        return nom.substring(0, 5)+"_"+prenom.substring(0, 0) ;
+        String login = "";
+        if(nom.length() > 6)login += nom.substring(0, 6);
+        else {
+            login += nom;
+        }
+        login += "_";
+        if(prenom.length() > 1)login += prenom.substring(0, 1);
+        else login += prenom;
+        login = login.toLowerCase();
+        login = login.replaceAll("é", "e");
+        login = login.replaceAll("è", "e");
+        login = login.replaceAll("à", "a");
+        login = login.replaceAll("[^a-z0-9]", "_");
+        return login;
     }
 
     /**
